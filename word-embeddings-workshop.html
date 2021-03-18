@@ -1,0 +1,1314 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Embeddings Workshop &#8212; CSS Workshop: Word Embeddings for the Social Sciences</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">CSS Workshop: Word Embeddings for the Social Sciences</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="#">
+   Word Embeddings Workshop
+  </a>
+ </li>
+</ul>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/word-embeddings-workshop.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ccgilroy/word-embeddings-workshop"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ccgilroy/word-embeddings-workshop/main?urlpath=tree/word-embeddings-workshop.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#packages-used">
+   Packages used
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-a-pretrained-model-glove">
+   1. Using a pretrained model (GloVe)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise">
+     Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-locally-trained-model-word2vec">
+   2. Creating a locally trained model (Word2Vec)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-a-corpus-20-newsgroups">
+     Getting a corpus (20 Newsgroups)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-the-model">
+     Fitting the model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-embeddings-whatlies-optional">
+   3. Visualizing embeddings (whatlies) [OPTIONAL]
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wrapping-up">
+   Wrapping up
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#main-takeaways">
+     Main takeaways
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-to-do-next">
+     What to do next
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contact-information-and-acknowledgments">
+     Contact information and acknowledgments
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="word-embeddings-workshop">
+<h1>Word Embeddings Workshop<a class="headerlink" href="#word-embeddings-workshop" title="Permalink to this headline">¶</a></h1>
+<p>March 19, 2021</p>
+<p>Instructor: Connor Gilroy, Department of Sociology, University of Washington<br />
+TA: Nga Than, Sociology program, CUNY Graduate Center</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The goal of this workshop is to give you an intuitive and practical introduction to what word embeddings are and what they can be used for in the social sciences.</p>
+<p>You can find a short introductory slide deck <a class="reference external" href="https://docs.google.com/presentation/d/1V4SaADerFMph9wB7pES76vYUWhIzvQ_LMpSyAIB6f_o/edit?usp=sharing">here</a>.</p>
+</div>
+<div class="section" id="packages-used">
+<h2>Packages used<a class="headerlink" href="#packages-used" title="Permalink to this headline">¶</a></h2>
+<p>This workshop primarily teaches and uses the <strong>gensim</strong> package. The main corpus (the 20 Newsgroups data set) comes from scikit-learn.</p>
+<p>An optional part of the tutorial also uses the <em>whatlies</em> package. For the exercises, you may find it helpful to load some common Python data science packages as well, if you have those installed in your environment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gensim</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+
+<span class="c1"># import numpy as np</span>
+<span class="c1"># import pandas as pd</span>
+<span class="c1"># import matplotlib.pyplot as plt</span>
+<span class="c1"># import seaborn as sns</span>
+<span class="c1"># import altair as alt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-a-pretrained-model-glove">
+<h2>1. Using a pretrained model (GloVe)<a class="headerlink" href="#using-a-pretrained-model-glove" title="Permalink to this headline">¶</a></h2>
+<p>Things to know about a pretrained model:</p>
+<ul class="simple">
+<li><p>What’s the overall modeling approach?</p></li>
+<li><p>What vector size?</p></li>
+<li><p>What vocabulary size?</p></li>
+<li><p>What other parameters might affect substantive results?</p></li>
+<li><p>What data was it trained on?</p></li>
+</ul>
+<p>Some of those things will be well-documented or obvious, some won’t be.</p>
+<p>The GloVe models are originally documented <a class="reference external" href="https://nlp.stanford.edu/projects/glove/">on a project page</a> from the Stanford NLP Group, but the gensim package also stores data for these and other models <a class="reference external" href="https://github.com/RaRe-Technologies/gensim-data">in the gensim-data repository</a>. We’ll download and load a small pretrained model from the latter; click the link to read more about it.</p>
+<p>This model is around 66 MB. It’s relatively small because each word is represented by a vector of only 50 numbers. Larger vectors (150-300 dimensions) are more common in practice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gensim.downloader</span> <span class="k">as</span> <span class="nn">api</span>
+<span class="n">glove_embeddings</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;glove-wiki-gigaword-50&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can confirm that these vectors do indeed have 50 dimensions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="o">.</span><span class="n">vector_size</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
+<p>How many words are in the vocabulary?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">glove_embeddings</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>400000
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a 400,000 x 50 matrix, which can be accessed through <code class="docutils literal notranslate"><span class="pre">glove_embeddings.vectors</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(400000, 50)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If a word is in the vocabulary, you can extract its embedding from the model like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="p">[</span><span class="s2">&quot;society&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.32823  ,  0.60464  , -1.4341   , -0.69483  ,  0.37222  ,
+        0.27362  , -0.20724  , -0.56052  ,  0.18415  , -0.37874  ,
+        0.74674  ,  0.42706  ,  0.58073  ,  0.27155  , -0.72668  ,
+       -0.069103 ,  0.44206  ,  0.3201   , -0.0098668,  0.37716  ,
+        0.46938  ,  0.50435  , -0.37607  ,  0.22032  ,  0.13913  ,
+       -1.2937   , -1.3741   , -1.1188   , -0.61808  ,  0.62293  ,
+        2.81     , -0.1561   , -0.19444  , -1.5079   , -1.2498   ,
+       -0.22614  , -0.65483  , -0.085504 ,  0.67726  , -0.021338 ,
+       -0.18614  , -1.0214   ,  0.47834  ,  0.58785  ,  0.26813  ,
+        0.86638  , -0.54169  , -0.32731  ,  0.032503 , -0.24343  ],
+      dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Differerent word, different vector:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="p">[</span><span class="s2">&quot;individual&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.11453 ,  0.73146 ,  0.11784 ,  0.36523 ,  0.98771 ,  0.80546 ,
+        0.61489 , -0.051392,  0.60681 , -0.24692 ,  0.025087, -0.27323 ,
+        0.25305 ,  0.042868,  0.33807 , -0.54849 ,  0.38897 , -0.13563 ,
+        0.069399, -1.2723  ,  0.27797 , -0.43719 ,  0.22549 ,  0.28142 ,
+        0.06787 , -0.68432 , -0.73477 , -1.2587  , -0.23347 , -0.25551 ,
+        3.2248  ,  0.71511 ,  0.028063, -0.80542 , -0.23383 ,  0.034666,
+        0.14269 ,  0.47143 , -0.70159 , -0.27487 ,  0.10003 , -1.0086  ,
+        0.83195 ,  1.4715  , -0.10354 , -0.50154 , -0.25713 ,  0.15875 ,
+       -0.24113 ,  0.028179], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>0.555 corresponds to 0.208, 0.493 corresponds to 0.895, and so on. (What do those individual positions mean? Not much on their own!)</p>
+<p>This is what unlocks the key innovation of word embeddings: we can calculate the similarity or distance between two words using their vector representations. This is usually done with a metric called <strong>cosine similarity</strong>, which ranges from -1 to 1 (=perfectly similar).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="s2">&quot;society&quot;</span><span class="p">,</span> <span class="s2">&quot;individual&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.57124346
+</pre></div>
+</div>
+</div>
+</div>
+<p>Of course, a word is exactly similar to itself:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="s2">&quot;society&quot;</span><span class="p">,</span> <span class="s2">&quot;society&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try out calculating the similarities between a few other pairs of words here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(Technical aside: cosine similarity is the dot product of two vectors, divided by the L2-norm for each vector.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">dot</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">norm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">glove_embeddings</span><span class="p">[</span><span class="s2">&quot;society&quot;</span><span class="p">],</span> <span class="n">glove_embeddings</span><span class="p">[</span><span class="s2">&quot;individual&quot;</span><span class="p">])</span> <span class="o">/</span> 
+    <span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">glove_embeddings</span><span class="p">[</span><span class="s2">&quot;society&quot;</span><span class="p">],</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">norm</span><span class="p">(</span><span class="n">glove_embeddings</span><span class="p">[</span><span class="s2">&quot;individual&quot;</span><span class="p">],</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5712435
+</pre></div>
+</div>
+</div>
+</div>
+<p>To understand how a model respresents a particular word, we can look at which words are the most similar to it according to that model.</p>
+<p>This is the foundation for making substantive claims about meaning: for instance, what a word means in a given set of documents, or how the meaning of a word has changed over time.</p>
+<p>Here are the 10 most similar words to “society” in the GloVe vocabulary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s2">&quot;society&quot;</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;societies&#39;, 0.862210750579834),
+ (&#39;institution&#39;, 0.7940563559532166),
+ (&#39;culture&#39;, 0.7808329463005066),
+ (&#39;social&#39;, 0.7668281197547913),
+ (&#39;established&#39;, 0.7649271488189697),
+ (&#39;cultural&#39;, 0.7567238211631775),
+ (&#39;community&#39;, 0.7481761574745178),
+ (&#39;science&#39;, 0.7377926707267761),
+ (&#39;establishment&#39;, 0.7374358177185059),
+ (&#39;profession&#39;, 0.735918402671814)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>And the 10 most similar words to “individual”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s2">&quot;individual&quot;</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;equal&#39;, 0.8033003211021423),
+ (&#39;number&#39;, 0.7950321435928345),
+ (&#39;represent&#39;, 0.7948423624038696),
+ (&#39;each&#39;, 0.7856720089912415),
+ (&#39;regardless&#39;, 0.7753193378448486),
+ (&#39;certain&#39;, 0.7704189419746399),
+ (&#39;placing&#39;, 0.766760528087616),
+ (&#39;individuals&#39;, 0.7637471556663513),
+ (&#39;these&#39;, 0.7541685700416565),
+ (&#39;different&#39;, 0.7537710666656494)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Relations of similarity are the basic operation, but we’re not limited to the individual word vectors we started with. We can do algebra on those vectors to build up new vectors that represent more complex meanings. For instance, we can take the <em>difference</em> between two vectors, in order to represent a binary opposition between them.</p>
+<p>Researchers build on this basic idea to create more robust vectors representing concepts that can be thought of in a binary way. Kozlowski et al 2019, for example, represent multiple dimensions of social class by averaging different pairs of antonyms. They then show how the associations between these dimensions change over the course of the 20th century.</p>
+<p>The next example constructs an opposition between “society” and “individual” – this will give us the words that are the closest to the “society” end of that dimension, or the “individual” end.</p>
+<p>(You might be able to tell that these vectors were trained on Wikipedia entries, because the vocabulary includes many rare words – we might get more interesting and meaningful results if we filtered the 400,000-word vocabulary first.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;society&quot;</span><span class="p">],</span> <span class="n">negative</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;individual&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;mattachine&#39;, 0.6032095551490784),
+ (&#39;anthroposophical&#39;, 0.5824963450431824),
+ (&#39;smolny&#39;, 0.5740677118301392),
+ (&#39;polytechnical&#39;, 0.5710374116897583),
+ (&#39;abyssinian&#39;, 0.5677530765533447),
+ (&#39;pompidou&#39;, 0.560329258441925),
+ (&#39;post-industrial&#39;, 0.5557958483695984),
+ (&#39;plaquemine&#39;, 0.5454120635986328),
+ (&#39;presbyterian&#39;, 0.5327621102333069),
+ (&#39;hereward&#39;, 0.5242972373962402)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;individual&quot;</span><span class="p">],</span> <span class="n">negative</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;society&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;100-200&#39;, 0.6291513442993164),
+ (&#39;apiece&#39;, 0.6258172988891602),
+ (&#39;lengths&#39;, 0.6198765635490417),
+ (&#39;finishers&#39;, 0.6118336319923401),
+ (&#39;contendership&#39;, 0.6085329055786133),
+ (&#39;onlytest&#39;, 0.6035232543945312),
+ (&#39;measly&#39;, 0.6017791032791138),
+ (&#39;6s&#39;, 0.6004780530929565),
+ (&#39;2,195&#39;, 0.5962419509887695),
+ (&#39;winnings&#39;, 0.5922033190727234)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>What’s happening here, behind the scenes, is that one vector is being subtracted from the other.</p>
+<p>This creates a new vector, like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="p">[</span><span class="s2">&quot;society&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">glove_embeddings</span><span class="p">[</span><span class="s2">&quot;individual&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.2137    , -0.12681997, -1.5519401 , -1.06006   , -0.61548996,
+       -0.53183997, -0.82212996, -0.509128  , -0.42266   , -0.13182001,
+        0.721653  ,  0.70028996,  0.32768002,  0.228682  , -1.06475   ,
+        0.479387  ,  0.05309001,  0.45573002, -0.0792658 ,  1.6494601 ,
+        0.19141   ,  0.94154   , -0.60156   , -0.06109999,  0.07126   ,
+       -0.60938   , -0.63932997,  0.13989997, -0.38461003,  0.87844   ,
+       -0.41480017, -0.87121   , -0.222503  , -0.70248   , -1.01597   ,
+       -0.26080602, -0.79752   , -0.556934  ,  1.37885   ,  0.253532  ,
+       -0.28617   , -0.01279998, -0.35361   , -0.88365006,  0.37167   ,
+        1.3679199 , -0.28456   , -0.48606   ,  0.273633  , -0.271609  ],
+      dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You might want to use that derived vector as part of your model, so here’s how to add it into the model’s overall set of vectors.</p>
+<p>(This next part is a bit technical and not substantively interesting, so I’ll gloss over the details. For an alternative, check out the whatlies package below.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span> <span class="o">=</span> <span class="n">glove_embeddings</span><span class="p">[</span><span class="s2">&quot;society&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">glove_embeddings</span><span class="p">[</span><span class="s2">&quot;individual&quot;</span><span class="p">]</span>
+<span class="n">glove_embeddings</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;society - individual&quot;</span><span class="p">,</span> <span class="n">diff</span><span class="p">)</span>
+<span class="n">glove_embeddings</span><span class="p">[</span><span class="s2">&quot;society - individual&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.2137    , -0.12681997, -1.5519401 , -1.06006   , -0.61548996,
+       -0.53183997, -0.82212996, -0.509128  , -0.42266   , -0.13182001,
+        0.721653  ,  0.70028996,  0.32768002,  0.228682  , -1.06475   ,
+        0.479387  ,  0.05309001,  0.45573002, -0.0792658 ,  1.6494601 ,
+        0.19141   ,  0.94154   , -0.60156   , -0.06109999,  0.07126   ,
+       -0.60938   , -0.63932997,  0.13989997, -0.38461003,  0.87844   ,
+       -0.41480017, -0.87121   , -0.222503  , -0.70248   , -1.01597   ,
+       -0.26080602, -0.79752   , -0.556934  ,  1.37885   ,  0.253532  ,
+       -0.28617   , -0.01279998, -0.35361   , -0.88365006,  0.37167   ,
+        1.3679199 , -0.28456   , -0.48606   ,  0.273633  , -0.271609  ],
+      dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order for <code class="docutils literal notranslate"><span class="pre">most_similar()</span></code> to actually work with the “society - individual” vector, there’s one more necessary step to run, in the next cell.</p>
+<p>(Why? Adding the vector doesn’t automatically create an L2-normalized version of it, which <code class="docutils literal notranslate"><span class="pre">most_similar()</span></code> needs. <code class="docutils literal notranslate"><span class="pre">init_sims()</span></code> will recalculate, but only if the rest of the normed vectors are removed first.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="o">.</span><span class="n">vectors_norm</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">glove_embeddings</span><span class="o">.</span><span class="n">init_sims</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can query this single vector and get the same results:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;society - individual&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;mattachine&#39;, 0.6110344529151917),
+ (&#39;anthroposophical&#39;, 0.5894421935081482),
+ (&#39;smolny&#39;, 0.5745000243186951),
+ (&#39;polytechnical&#39;, 0.5712946057319641),
+ (&#39;abyssinian&#39;, 0.5659253001213074),
+ (&#39;post-industrial&#39;, 0.5655431151390076),
+ (&#39;pompidou&#39;, 0.5630674362182617),
+ (&#39;presbyterian&#39;, 0.5473666787147522),
+ (&#39;plaquemine&#39;, 0.5414626598358154),
+ (&#39;anti-vivisection&#39;, 0.5300812721252441)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glove_embeddings</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">negative</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;society - individual&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;100-200&#39;, 0.6315953731536865),
+ (&#39;apiece&#39;, 0.6210841536521912),
+ (&#39;6s&#39;, 0.6087102890014648),
+ (&#39;contendership&#39;, 0.6076172590255737),
+ (&#39;measly&#39;, 0.6065807938575745),
+ (&#39;lengths&#39;, 0.6052266359329224),
+ (&#39;2,195&#39;, 0.6003236770629883),
+ (&#39;finishers&#39;, 0.5999947786331177),
+ (&#39;onlytest&#39;, 0.594523549079895),
+ (&#39;777-200s&#39;, 0.5921435952186584)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h3>
+<p>(Adapted from Kozlowski et al 2019) Make a list of sports. Construct a “rich” vs “poor” dimension to proxy social class. Which sports have the strongest class associations in either direction?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add to this list!</span>
+<span class="n">sports</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hockey&quot;</span><span class="p">,</span> <span class="s2">&quot;baseball&quot;</span><span class="p">,</span> <span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a rich - poor vector </span>
+<span class="c1"># then add it to the GloVe vectors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate similarity between class dimension and each sport</span>
+<span class="n">sport_similarities</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">sport</span> <span class="ow">in</span> <span class="n">sports</span><span class="p">:</span>
+    <span class="k">pass</span> <span class="c1"># replace with code to calculate similarity - you </span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-a-locally-trained-model-word2vec">
+<h2>2. Creating a locally trained model (Word2Vec)<a class="headerlink" href="#creating-a-locally-trained-model-word2vec" title="Permalink to this headline">¶</a></h2>
+<p>If you’re interested in word associations in a particular collection of texts, or if you suspect that those texts use language really differently from the sources pretrained models derive from (largely different kinds of contemporary internet data), then you might want to train your own model.</p>
+<div class="section" id="getting-a-corpus-20-newsgroups">
+<h3>Getting a corpus (20 Newsgroups)<a class="headerlink" href="#getting-a-corpus-20-newsgroups" title="Permalink to this headline">¶</a></h3>
+<p>To train a new model on a corpus, we need a corpus. We’ll use the <a class="reference external" href="http://qwone.com/~jason/20Newsgroups/">20 Newsgroups data set</a>, which was created in 1995 for use in text-related machine learning research. Because the posts are partitioned into different groups, it’s mainly used in classification and clustering applications. For an interesting contemporary example, which uses clusters of pretrained embeddings analogously to topic models, see <a class="reference external" href="http://arxiv.org/abs/2004.14914">Sia et al 2020</a>.</p>
+<p>(Sociologically, I find Usenet interesting as a historical precursor to contemporary online communities. Check out Nancy Baym’s 1994 paper or her 2000 book if you’d like more ethnographic context, or Avery Dame-Griff 2019 if you’d like a historically-informed computational analysis.)</p>
+<p>Running this code will download the 20 Newsgroups data set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_20newsgroups</span>
+
+<span class="n">twenty_newsgroups</span> <span class="o">=</span> <span class="n">fetch_20newsgroups</span><span class="p">(</span><span class="n">data_home</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">,</span>
+                                       <span class="n">subset</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                                       <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                       <span class="n">remove</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;headers&#39;</span><span class="p">,</span> <span class="s1">&#39;footers&#39;</span><span class="p">,</span> <span class="s1">&#39;quotes&#39;</span><span class="p">),</span>
+                                       <span class="n">download_if_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The data set has about 18000 posts. The way the <code class="docutils literal notranslate"><span class="pre">remove</span></code> argument parses the posts is approximate, so some of those posts wind up being empty strings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">twenty_newsgroups</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18846
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s look at the data by printing out a few posts at random.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">twenty_newsgroups</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>morgan and guzman will have era&#39;s 1 run higher than last year, and
+ the cubs will be idiots and not pitch harkey as much as hibbard.
+ castillo won&#39;t be good (i think he&#39;s a stud pitcher)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">twenty_newsgroups</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help!!!
+
+I have an ADB graphicsd tablet which I want to connect to my
+Quadra 950. Unfortunately, the 950 has only one ADB port and
+it seems I would have to give up my mouse.
+
+Please, can someone help me? I want to use the tablet as well as
+the mouse (and the keyboard of course!!!).
+
+Thanks in advance.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at a few more!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You might notice some obvious themes or topics in the text. These are the groups included in the data set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">twenty_newsgroups</span><span class="o">.</span><span class="n">target_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;alt.atheism&#39;,
+ &#39;comp.graphics&#39;,
+ &#39;comp.os.ms-windows.misc&#39;,
+ &#39;comp.sys.ibm.pc.hardware&#39;,
+ &#39;comp.sys.mac.hardware&#39;,
+ &#39;comp.windows.x&#39;,
+ &#39;misc.forsale&#39;,
+ &#39;rec.autos&#39;,
+ &#39;rec.motorcycles&#39;,
+ &#39;rec.sport.baseball&#39;,
+ &#39;rec.sport.hockey&#39;,
+ &#39;sci.crypt&#39;,
+ &#39;sci.electronics&#39;,
+ &#39;sci.med&#39;,
+ &#39;sci.space&#39;,
+ &#39;soc.religion.christian&#39;,
+ &#39;talk.politics.guns&#39;,
+ &#39;talk.politics.mideast&#39;,
+ &#39;talk.politics.misc&#39;,
+ &#39;talk.religion.misc&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Preprocessing is an important (and sometimes underappreciated) step in text analysis, which <a class="reference external" href="https://github.com/matthewjdenny/preText">can have downstream consequences</a>.</p>
+<p>We’ll preprocess eacg Usenet post pretty minimally – remove punctuation and special characters, lowercase, and tokenize it into a list of words:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gensim.utils</span> <span class="kn">import</span> <span class="n">simple_preprocess</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">simple_preprocess</span><span class="p">(</span><span class="n">twenty_newsgroups</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">min_len</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;help&#39;, &#39;i&#39;, &#39;have&#39;, &#39;an&#39;, &#39;adb&#39;, &#39;graphicsd&#39;, &#39;tablet&#39;, &#39;which&#39;, &#39;i&#39;, &#39;want&#39;, &#39;to&#39;, &#39;connect&#39;, &#39;to&#39;, &#39;my&#39;, &#39;quadra&#39;, &#39;unfortunately&#39;, &#39;the&#39;, &#39;has&#39;, &#39;only&#39;, &#39;one&#39;, &#39;adb&#39;, &#39;port&#39;, &#39;and&#39;, &#39;it&#39;, &#39;seems&#39;, &#39;i&#39;, &#39;would&#39;, &#39;have&#39;, &#39;to&#39;, &#39;give&#39;, &#39;up&#39;, &#39;my&#39;, &#39;mouse&#39;, &#39;please&#39;, &#39;can&#39;, &#39;someone&#39;, &#39;help&#39;, &#39;me&#39;, &#39;i&#39;, &#39;want&#39;, &#39;to&#39;, &#39;use&#39;, &#39;the&#39;, &#39;tablet&#39;, &#39;as&#39;, &#39;well&#39;, &#39;as&#39;, &#39;the&#39;, &#39;mouse&#39;, &#39;and&#39;, &#39;the&#39;, &#39;keyboard&#39;, &#39;of&#39;, &#39;course&#39;, &#39;thanks&#39;, &#39;in&#39;, &#39;advance&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessed_docs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">twenty_newsgroups</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+    <span class="n">preprocessed_docs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">simple_preprocess</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">min_len</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fitting-the-model">
+<h3>Fitting the model<a class="headerlink" href="#fitting-the-model" title="Permalink to this headline">¶</a></h3>
+<p>That was a lot of data work, but now we’re ready to train a word2vec model.</p>
+<p>We’ll use skip-gram (<code class="docutils literal notranslate"><span class="pre">sg=1</span></code>) with negative sampling (<code class="docutils literal notranslate"><span class="pre">negative=5</span></code>). We’ll use a small vector size (<code class="docutils literal notranslate"><span class="pre">size=50</span></code>) because it’s faster to train. We’ll make a few passes over the data set (<code class="docutils literal notranslate"><span class="pre">iter=10</span></code>), and we’ll ignore any words appearing less than 5 times total (<code class="docutils literal notranslate"><span class="pre">min_count=5</span></code>).</p>
+<p>To start with, let’s try a small context window around each word (<code class="docutils literal notranslate"><span class="pre">window=5</span></code>).</p>
+<p><strong>Note:</strong> This small vector size, combined with this small window size, isn’t something we’d expect to yield a great model, but it’s relatively quick to train. (On my laptop, that means less than two minutes – it might vary for your machine. <code class="docutils literal notranslate"><span class="pre">workers=3</span></code> means that it runs on three processes.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
+
+<span class="n">w2v_model1</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="o">=</span><span class="n">preprocessed_docs</span><span class="p">,</span> 
+                      <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
+                      <span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> 
+                      <span class="n">min_count</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                      <span class="n">workers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                      <span class="n">sg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+                      <span class="n">hs</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+                      <span class="n">negative</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                      <span class="nb">iter</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are some basic properties of the trained model. Note that the embeddings themselves are accessed through the <code class="docutils literal notranslate"><span class="pre">wv</span></code> property.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w2v_model1</span><span class="o">.</span><span class="n">corpus_count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18846
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w2v_model1</span><span class="o">.</span><span class="n">total_train_time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>114.06957440099978
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w2v_model1</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(26489, 50)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The vector for a given word will be a different string of numbers from the previous GloVe model. (And there’s no reason for the dimensions to correspond, either!)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w2v_model1</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="s2">&quot;society&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.4648067 , -0.30961558, -0.4297171 ,  0.33018082, -0.00298255,
+       -0.46494055,  0.1689612 , -0.21658695, -0.4500986 , -0.5325201 ,
+       -0.09981444,  0.5783826 ,  0.49386802, -0.10718588, -0.15735006,
+       -0.30751842,  0.3241669 , -0.18394656, -1.0072792 ,  0.3589885 ,
+       -0.18563986, -0.30212823, -0.09242135,  0.8646745 ,  0.1605212 ,
+       -0.01719386, -0.1941163 , -0.19161738, -0.2948527 ,  0.6057556 ,
+       -0.26870143,  0.15840948, -0.15963495, -0.5886368 , -0.0726027 ,
+       -0.61497533,  0.2819119 , -0.8079064 ,  0.67224276, -0.32638654,
+       -0.4364008 , -0.42778316, -0.16592911,  0.37908164, -0.35536066,
+       -0.29594222,  0.14621828, -0.14375633,  0.07059345, -0.5240879 ],
+      dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead, we’ll look at the most similar words again, to get a qualitative impression for whether this model is encoding a meaning similar to the GloVe model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w2v_model1</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s2">&quot;society&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;secular&#39;, 0.7837257385253906),
+ (&#39;realm&#39;, 0.7744844555854797),
+ (&#39;ism&#39;, 0.7651664018630981),
+ (&#39;fertility&#39;, 0.7509962320327759),
+ (&#39;nation&#39;, 0.7491022348403931),
+ (&#39;communal&#39;, 0.7490184307098389),
+ (&#39;astronautical&#39;, 0.7445829510688782),
+ (&#39;humanist&#39;, 0.7444897294044495),
+ (&#39;philosophies&#39;, 0.7368832230567932),
+ (&#39;offshoots&#39;, 0.7347400784492493)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, for the word “individual”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w2v_model1</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s2">&quot;individual&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;dignity&#39;, 0.7122915387153625),
+ (&#39;qualification&#39;, 0.708573579788208),
+ (&#39;legality&#39;, 0.7025988101959229),
+ (&#39;inalienable&#39;, 0.7006253004074097),
+ (&#39;exclusive&#39;, 0.6991674304008484),
+ (&#39;outweighs&#39;, 0.6921983957290649),
+ (&#39;rights&#39;, 0.6904846429824829),
+ (&#39;incur&#39;, 0.6857858300209045),
+ (&#39;individuals&#39;, 0.6842727661132812),
+ (&#39;basis&#39;, 0.6831294298171997)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We won’t repeat every step from Part 1 above.</p>
+<p>Instead, let’s experiment with changing one parameter for training the model, the context window around each word. We’ll fit a new model with <code class="docutils literal notranslate"><span class="pre">window=10</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w2v_model2</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="o">=</span><span class="n">preprocessed_docs</span><span class="p">,</span> 
+                      <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
+                      <span class="n">window</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+                      <span class="n">min_count</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                      <span class="n">workers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                      <span class="n">sg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+                      <span class="n">hs</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+                      <span class="n">negative</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                      <span class="nb">iter</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w2v_model2</span><span class="o">.</span><span class="n">total_train_time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>184.1943228589999
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w2v_model2</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s2">&quot;society&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;footing&#39;, 0.796887218952179),
+ (&#39;secular&#39;, 0.7938194274902344),
+ (&#39;ism&#39;, 0.783584475517273),
+ (&#39;environmentalism&#39;, 0.7684481739997864),
+ (&#39;advocates&#39;, 0.7650079727172852),
+ (&#39;nation&#39;, 0.7641049027442932),
+ (&#39;fertility&#39;, 0.760269045829773),
+ (&#39;realm&#39;, 0.7589974999427795),
+ (&#39;cultural&#39;, 0.750839114189148),
+ (&#39;communal&#39;, 0.7494202852249146)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Qualitatively, smaller windows (e.g. 5) tend to encode more syntactic similarities (words that are substitutes), whereas larger windows (e.g. 50) encode more semantic similarities (words that are topically similar). See Rodriguez and Spirling 2020 or <a class="reference external" href="https://www.youtube.com/watch?v=tAxrlAVw-Tk&amp;t=648s">this PyData talk from 2017</a>.</p>
+</div>
+<div class="section" id="id1">
+<h3>Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>(Adapted from Rodriguez and Spirling 2020) How correlated are those two word2vec models? Pick a focal word like “society” and calculate cosine similarity between that word and every word in the entire model vocabulary, for each model. Then calculate the correlation between those two measures.</p>
+<p>(You might use <code class="docutils literal notranslate"><span class="pre">most_similar()</span></code> with the appropriate value for <code class="docutils literal notranslate"><span class="pre">topn</span></code>, or <code class="docutils literal notranslate"><span class="pre">similarity()</span></code> with a for-loop. The first is probably more efficient, but then you’ll need to sort or join the two lists based on the words. Python data science packages like pandas may be helpful.)</p>
+<hr class="docutils" />
+<p>On your own, after the workshop:</p>
+<ul class="simple">
+<li><p>Try a larger vector size (e.g. 100, 150, 200, 300)</p></li>
+<li><p>Try a larger window size (e.g. 20, 50)</p></li>
+<li><p>Try reducing min_count (e.g. from 5 to 2)</p></li>
+</ul>
+<p><strong>Note: all of these parameter changes make the model take longer to train!</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualizing-embeddings-whatlies-optional">
+<h2>3. Visualizing embeddings (whatlies) [OPTIONAL]<a class="headerlink" href="#visualizing-embeddings-whatlies-optional" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://rasahq.github.io/whatlies/">whatlies package</a> is relatively new (Warmerdam et al 2020); it’s meant to facilitate exploring and visualizing embeddings.</p>
+<p>It works as a wrapper around embeddings from different packages, including gensim. We’ll turn the word2vec model from Part 3 into a <code class="docutils literal notranslate"><span class="pre">whatlies.EmbeddingSet</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">whatlies</span> <span class="kn">import</span> <span class="n">Embedding</span><span class="p">,</span> <span class="n">EmbeddingSet</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">emb_w2v</span> <span class="o">=</span> <span class="n">EmbeddingSet</span><span class="o">.</span><span class="n">from_names_X</span><span class="p">(</span><span class="n">names</span><span class="o">=</span><span class="n">w2v_model1</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">index2word</span><span class="p">,</span> 
+                                    <span class="n">X</span><span class="o">=</span><span class="n">w2v_model1</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">vectors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>whatlies has built-in functions for plotting things like cosine similarities (built on the Python visualization packages matplotlib and altair):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">emb_w2v</span><span class="o">.</span><span class="n">embset_similar</span><span class="p">(</span><span class="s2">&quot;society&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;cosine&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot_similarity</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/word-embeddings-workshop_82_0.png" src="_images/word-embeddings-workshop_82_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">emb_w2v</span><span class="o">.</span><span class="n">embset_similar</span><span class="p">(</span><span class="s2">&quot;individual&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;cosine&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot_similarity</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/word-embeddings-workshop_83_0.png" src="_images/word-embeddings-workshop_83_0.png" />
+</div>
+</div>
+<p>It also implements vector algebra on embeddings in a nice way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">emb_w2v</span><span class="o">.</span><span class="n">embset_similar</span><span class="p">(</span><span class="n">emb_w2v</span><span class="p">[</span><span class="s2">&quot;society&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">emb_w2v</span><span class="p">[</span><span class="s2">&quot;individual&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">plot_similarity</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/word-embeddings-workshop_85_0.png" src="_images/word-embeddings-workshop_85_0.png" />
+</div>
+</div>
+<p>We can plot the similarities of different vectors against each other on the axes as well:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">emb_w2v</span><span class="p">[</span><span class="s2">&quot;society&quot;</span><span class="p">,</span> <span class="s2">&quot;nation&quot;</span><span class="p">,</span> <span class="s2">&quot;individual&quot;</span><span class="p">,</span> <span class="s2">&quot;exclusive&quot;</span><span class="p">]</span>
+ <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="o">=</span><span class="s2">&quot;society&quot;</span><span class="p">,</span> 
+       <span class="n">y_axis</span><span class="o">=</span><span class="s2">&quot;individual&quot;</span><span class="p">,</span> 
+       <span class="n">axis_metric</span><span class="o">=</span><span class="s2">&quot;cosine_similarity&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EmbSet.subset(society,nation,individual,exclusive)
+</pre></div>
+</div>
+<img alt="_images/word-embeddings-workshop_87_1.png" src="_images/word-embeddings-workshop_87_1.png" />
+</div>
+</div>
+<p>Or, we can transform the local vector space. Mouse over the points below to see the words.</p>
+<p>(You could, of course, use any dimensionality reduction technique on the entire vector space as well.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">whatlies.transformers</span> <span class="kn">import</span> <span class="n">Pca</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">emb_w2v</span>
+ <span class="o">.</span><span class="n">embset_similar</span><span class="p">(</span><span class="s2">&quot;society&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;cosine&quot;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Pca</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+ <span class="o">.</span><span class="n">plot_interactive</span><span class="p">(</span><span class="n">annot</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-9a1d2d4ef0664ba19df262067b6805c3"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-9a1d2d4ef0664ba19df262067b6805c3") {
+      outputDiv = document.getElementById("altair-viz-9a1d2d4ef0664ba19df262067b6805c3");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-0ce9153d71afd4e9eab4f76728329b0b"}, "mark": {"type": "circle", "size": 60}, "encoding": {"color": {"type": "nominal", "field": "", "legend": null}, "tooltip": [{"type": "nominal", "field": "name"}, {"type": "nominal", "field": "original"}], "x": {"type": "quantitative", "axis": {"title": "Dimension 0"}, "field": "x_axis"}, "y": {"type": "quantitative", "axis": {"title": "Dimension 1"}, "field": "y_axis"}}, "selection": {"selector001": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "title": "Dimension 0 vs. Dimension 1", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-0ce9153d71afd4e9eab4f76728329b0b": [{"x_axis": 0.29952308535575867, "y_axis": 0.8723770380020142, "name": "society", "original": "society"}, {"x_axis": 1.1209288835525513, "y_axis": 0.3911184072494507, "name": "secular", "original": "secular"}, {"x_axis": 0.40628567337989807, "y_axis": -0.40850526094436646, "name": "realm", "original": "realm"}, {"x_axis": -0.5611036419868469, "y_axis": -0.18582463264465332, "name": "ism", "original": "ism"}, {"x_axis": 0.004202389623969793, "y_axis": -0.35252445936203003, "name": "fertility", "original": "fertility"}, {"x_axis": 0.6222142577171326, "y_axis": 0.20999212563037872, "name": "nation", "original": "nation"}, {"x_axis": -0.026594674214720726, "y_axis": -0.3913387060165405, "name": "communal", "original": "communal"}, {"x_axis": -0.7630767226219177, "y_axis": 0.8838430047035217, "name": "astronautical", "original": "astronautical"}, {"x_axis": 0.13740336894989014, "y_axis": 0.2048325389623642, "name": "humanist", "original": "humanist"}, {"x_axis": 0.15130239725112915, "y_axis": -0.17662447690963745, "name": "philosophies", "original": "philosophies"}, {"x_axis": -0.06915435940027237, "y_axis": -0.3994660973548889, "name": "offshoots", "original": "offshoots"}, {"x_axis": 0.15132753551006317, "y_axis": 0.7515997290611267, "name": "community", "original": "community"}, {"x_axis": -0.616267740726471, "y_axis": 0.3885056674480438, "name": "cryptogram", "original": "cryptogram"}, {"x_axis": 1.0463786125183105, "y_axis": 0.7524108290672302, "name": "democracy", "original": "democracy"}, {"x_axis": 0.3357959985733032, "y_axis": -0.3291004002094269, "name": "influence", "original": "influence"}, {"x_axis": -0.15717577934265137, "y_axis": -0.3666573464870453, "name": "abolition", "original": "abolition"}, {"x_axis": 1.1028071641921997, "y_axis": 0.5121613144874573, "name": "culture", "original": "culture"}, {"x_axis": -0.12759070098400116, "y_axis": -0.23870112001895905, "name": "emergence", "original": "emergence"}, {"x_axis": 0.32162919640541077, "y_axis": -0.27816885709762573, "name": "standpoint", "original": "standpoint"}, {"x_axis": 0.06288433074951172, "y_axis": 0.8814567923545837, "name": "organizations", "original": "organizations"}, {"x_axis": -0.05466402322053909, "y_axis": -0.2666049897670746, "name": "worldview", "original": "worldview"}, {"x_axis": -0.5559503436088562, "y_axis": 0.6461901068687439, "name": "foundation", "original": "foundation"}, {"x_axis": -0.9061737656593323, "y_axis": 0.01466701366007328, "name": "handbook_", "original": "handbook_"}, {"x_axis": -0.3263786733150482, "y_axis": 1.3124545812606812, "name": "association", "original": "association"}, {"x_axis": -0.18744443356990814, "y_axis": -0.364020973443985, "name": "confidentiality", "original": "confidentiality"}, {"x_axis": 0.16069960594177246, "y_axis": -0.01263734232634306, "name": "industrialized", "original": "industrialized"}, {"x_axis": -0.3354814350605011, "y_axis": -0.22889888286590576, "name": "gatt", "original": "gatt"}, {"x_axis": 0.65815669298172, "y_axis": 0.3125644624233246, "name": "movement", "original": "movement"}, {"x_axis": 0.6528583765029907, "y_axis": 0.3284667134284973, "name": "philosophy", "original": "philosophy"}, {"x_axis": -0.19524577260017395, "y_axis": 0.05040287971496582, "name": "banking", "original": "banking"}, {"x_axis": -0.3703887462615967, "y_axis": 0.000995681737549603, "name": "socialization", "original": "socialization"}, {"x_axis": -0.003124331124126911, "y_axis": -0.6107853651046753, "name": "insights", "original": "insights"}, {"x_axis": -1.0133522748947144, "y_axis": 0.7153416275978088, "name": "aas", "original": "aas"}, {"x_axis": 0.41655075550079346, "y_axis": -0.07125264406204224, "name": "awareness", "original": "awareness"}, {"x_axis": -0.203902468085289, "y_axis": -0.528099536895752, "name": "intimidation", "original": "intimidation"}, {"x_axis": 0.20687082409858704, "y_axis": 0.26571014523506165, "name": "founded", "original": "founded"}, {"x_axis": -0.8734729290008545, "y_axis": 0.5732911825180054, "name": "nss", "original": "nss"}, {"x_axis": -0.11604499816894531, "y_axis": -0.162882998585701, "name": "bloc", "original": "bloc"}, {"x_axis": -0.46462687849998474, "y_axis": 0.9602326154708862, "name": "organization", "original": "organization"}, {"x_axis": -0.3430335819721222, "y_axis": 0.36471059918403625, "name": "standards", "original": "standards"}, {"x_axis": -0.46520718932151794, "y_axis": -0.4371810555458069, "name": "steward", "original": "steward"}, {"x_axis": 0.8504171967506409, "y_axis": 0.36538776755332947, "name": "liberties", "original": "liberties"}, {"x_axis": -0.23751625418663025, "y_axis": -0.4978034198284149, "name": "unwelcome", "original": "unwelcome"}, {"x_axis": 1.1293690204620361, "y_axis": 0.4323738217353821, "name": "cultural", "original": "cultural"}, {"x_axis": -0.010656493715941906, "y_axis": -0.4523598849773407, "name": "benevolent", "original": "benevolent"}, {"x_axis": 0.15521159768104553, "y_axis": -0.5687677264213562, "name": "derives", "original": "derives"}, {"x_axis": -0.061054032295942307, "y_axis": -0.2653673589229584, "name": "clout", "original": "clout"}, {"x_axis": -0.24394366145133972, "y_axis": -0.6209304928779602, "name": "wholesome", "original": "wholesome"}, {"x_axis": -0.11877471953630447, "y_axis": 0.05419788882136345, "name": "sampson", "original": "sampson"}, {"x_axis": -0.9067091345787048, "y_axis": 0.5661408305168152, "name": "investor", "original": "investor"}, {"x_axis": -0.5883990526199341, "y_axis": -0.09677734225988388, "name": "berkley", "original": "berkley"}, {"x_axis": -0.27497997879981995, "y_axis": 0.8207117915153503, "name": "american", "original": "american"}, {"x_axis": -0.2306077778339386, "y_axis": -0.2593957781791687, "name": "treasure", "original": "treasure"}, {"x_axis": -0.32428017258644104, "y_axis": -0.28540197014808655, "name": "monuments", "original": "monuments"}, {"x_axis": 0.35588520765304565, "y_axis": 0.3081223964691162, "name": "country", "original": "country"}, {"x_axis": 0.5101485252380371, "y_axis": -0.5882915258407593, "name": "judeo", "original": "judeo"}, {"x_axis": -0.12095552682876587, "y_axis": 0.08314835280179977, "name": "scholarship", "original": "scholarship"}, {"x_axis": -0.3943161368370056, "y_axis": 0.66558438539505, "name": "america", "original": "america"}, {"x_axis": -0.5488882660865784, "y_axis": -0.2173151671886444, "name": "wilder", "original": "wilder"}, {"x_axis": 0.18834897875785828, "y_axis": 0.5202546715736389, "name": "solidarity", "original": "solidarity"}, {"x_axis": 0.23790085315704346, "y_axis": 0.24378560483455658, "name": "lobby", "original": "lobby"}, {"x_axis": 1.5639784336090088, "y_axis": -0.014694450423121452, "name": "religion", "original": "religion"}, {"x_axis": -0.3243902921676636, "y_axis": -0.1434638649225235, "name": "timely", "original": "timely"}, {"x_axis": -0.10264957696199417, "y_axis": -0.6832150816917419, "name": "decreed", "original": "decreed"}, {"x_axis": 0.43755924701690674, "y_axis": -0.31994760036468506, "name": "coercion", "original": "coercion"}, {"x_axis": 0.018930993974208832, "y_axis": -0.046086277812719345, "name": "advocates", "original": "advocates"}, {"x_axis": -0.12463176250457764, "y_axis": -0.5863544940948486, "name": "sparked", "original": "sparked"}, {"x_axis": -0.3023339807987213, "y_axis": -0.08719509094953537, "name": "sadval", "original": "sadval"}, {"x_axis": 0.39472562074661255, "y_axis": -0.16173160076141357, "name": "autonomy", "original": "autonomy"}, {"x_axis": -0.10047037154436111, "y_axis": -0.15228109061717987, "name": "indo", "original": "indo"}, {"x_axis": 0.2676672339439392, "y_axis": -0.32852235436439514, "name": "ethnical", "original": "ethnical"}, {"x_axis": -0.011634939350187778, "y_axis": -0.5716143250465393, "name": "trinitarianism", "original": "trinitarianism"}, {"x_axis": 0.050396211445331573, "y_axis": -0.0631248950958252, "name": "consensus", "original": "consensus"}, {"x_axis": -0.1770293116569519, "y_axis": 0.740431547164917, "name": "science", "original": "science"}, {"x_axis": 0.0023111789487302303, "y_axis": -0.35480859875679016, "name": "leftists", "original": "leftists"}, {"x_axis": -0.40048453211784363, "y_axis": 0.018883004784584045, "name": "businessmen", "original": "businessmen"}, {"x_axis": -0.40786221623420715, "y_axis": -0.26731595396995544, "name": "brotherhood", "original": "brotherhood"}, {"x_axis": 0.052315033972263336, "y_axis": -0.5322762131690979, "name": "accorded", "original": "accorded"}, {"x_axis": 0.7487879991531372, "y_axis": -0.02259548008441925, "name": "ethics", "original": "ethics"}, {"x_axis": -0.22867847979068756, "y_axis": -0.44354841113090515, "name": "parades", "original": "parades"}, {"x_axis": 0.04308626800775528, "y_axis": -0.8036034107208252, "name": "assent", "original": "assent"}, {"x_axis": -0.5117648243904114, "y_axis": 0.019825046882033348, "name": "outlook", "original": "outlook"}, {"x_axis": 0.1000736802816391, "y_axis": -0.42994263768196106, "name": "regulating", "original": "regulating"}, {"x_axis": -0.21541044116020203, "y_axis": -0.1668328493833542, "name": "achievement", "original": "achievement"}, {"x_axis": -0.1398801952600479, "y_axis": -0.25266870856285095, "name": "strengthening", "original": "strengthening"}, {"x_axis": 0.20786891877651215, "y_axis": -0.23043598234653473, "name": "survival", "original": "survival"}, {"x_axis": 0.37944114208221436, "y_axis": -0.2174055427312851, "name": "zoroastrians", "original": "zoroastrians"}, {"x_axis": 0.532522976398468, "y_axis": 0.4126633107662201, "name": "partnership", "original": "partnership"}, {"x_axis": 0.401753693819046, "y_axis": 0.25749292969703674, "name": "socialist", "original": "socialist"}, {"x_axis": -0.07967113703489304, "y_axis": -0.6341100335121155, "name": "metaphors", "original": "metaphors"}, {"x_axis": 0.1336824744939804, "y_axis": 0.6213545799255371, "name": "economics", "original": "economics"}, {"x_axis": -0.2300436645746231, "y_axis": -0.5085095167160034, "name": "cowardice", "original": "cowardice"}, {"x_axis": -0.3901509940624237, "y_axis": 0.010658870451152325, "name": "accommodates", "original": "accommodates"}, {"x_axis": -0.4096914827823639, "y_axis": 0.7449007630348206, "name": "industries", "original": "industries"}, {"x_axis": 0.7159764766693115, "y_axis": -0.1519346833229065, "name": "pursuit", "original": "pursuit"}, {"x_axis": -0.6135117411613464, "y_axis": -0.09881103783845901, "name": "honours", "original": "honours"}, {"x_axis": 0.09464730322360992, "y_axis": 0.08765735477209091, "name": "domination", "original": "domination"}, {"x_axis": 0.20386658608913422, "y_axis": -0.20059913396835327, "name": "arising", "original": "arising"}, {"x_axis": 0.34548601508140564, "y_axis": 0.020183825865387917, "name": "socialism", "original": "socialism"}, {"x_axis": -0.4133550524711609, "y_axis": -0.2517678737640381, "name": "forefront", "original": "forefront"}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="section" id="id2">
+<h3>Exercise<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Write code to convert the GloVe embeddings from a gensim <code class="docutils literal notranslate"><span class="pre">KeyedVectors</span></code> object to a whatlies <code class="docutils literal notranslate"><span class="pre">EmbeddingSet</span></code>. (Note: you don’t need to use the <code class="docutils literal notranslate"><span class="pre">wv</span></code> attribute. Instead, access <code class="docutils literal notranslate"><span class="pre">glove_embeddings.index2word</span></code> directly. That’s what the warning message “use self” means.)</p>
+<p>Then, select some neighborhood of words (maybe a larger one than n=100) around a focal word (like “society”), transform those vectors with PCA, and plot them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert glove embeddings to an EmbeddingSet</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select, transform, and plot</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="wrapping-up">
+<h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="main-takeaways">
+<h3>Main takeaways<a class="headerlink" href="#main-takeaways" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Word embeddings have become one tool in the computational text analysis toolkit.</p></li>
+<li><p>They’ve been successfully applied in the social sciences, in cases where the relational meanings of words and concepts are of substantive interest.</p></li>
+</ul>
+</div>
+<div class="section" id="what-to-do-next">
+<h3>What to do next<a class="headerlink" href="#what-to-do-next" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Keep playing around in this notebook, with different words and parameters!</p></li>
+<li><p>Apply a pretrained model to or train a local model on your own corpus.</p></li>
+<li><p>Have a look at the code for some of the papers listed below.</p></li>
+<li><p>Read through my <a class="reference external" href="https://ccgilroy.github.io/community-discourse/">experimental notebooks</a>. I wrote those notebooks for myself, to explore how these methods could be applied to a topic I’m interested in, but you might find them useful.</p></li>
+</ul>
+<p>The main additional topic I would have liked to cover in this workshop, given more time, is <strong>document-level comparisons</strong>. There are two interesting methods in gensim, Word Mover’s Distance and Doc2Vec, which do pretty different things. I’m happy to discuss those methods during the Q&amp;A.</p>
+</div>
+<div class="section" id="further-reading">
+<h3>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h3>
+<p>I’ve loosely categorized some relevant papers into three groups. I’d recommend starting with papers in the first category, though there are some interesting methodological ideas in the second and third categories.</p>
+<p>You’ll notice that <strong>time</strong> is the covariate of choice for many of the applied papers. I’m excited to see what other sources of variation researchers can come up with.</p>
+<p>Social science papers:</p>
+<ul class="simple">
+<li><p>Kozlowski et al 2019 (“Geometry of Culture”)</p></li>
+<li><p>Stoltz and Taylor 2019, Taylor and Stoltz 2020a, Taylor and Stoltz 2020b, Stoltz and Taylor forthcoming (Concept Mover’s Distance and extensions)</p></li>
+<li><p>Rheault and Cochrane 2020 (ideology and parliamentary corporas)</p></li>
+<li><p>Rodriguez and Spirling 2020 (methodological comparisons for political science research)</p></li>
+<li><p>Arseniev-Koehler and Foster 2020 (cultural learning and what it means to be fat)</p></li>
+<li><p>Nelson 2021 (machine learning and intersectionality)</p></li>
+</ul>
+<p>Social application papers from NLP/CS researchers:</p>
+<ul class="simple">
+<li><p>Bamman et al 2014 (embedding decomposition and geographic variation)</p></li>
+<li><p>Kulkarni et al 2015 (historical semantic change over time)</p></li>
+<li><p>Hamilton et al 2016a, 2016b (histwords - semantic change)</p></li>
+<li><p>Garg et al 2017 (stereotypes and semantic change)</p></li>
+<li><p>Gonen and Goldberg 2019 (“Lipstick on a pig” - “debiasing” embeddings in terms of gender)</p></li>
+<li><p>Giulanelli et al 2020 (contextual embeddings for semantic change)</p></li>
+<li><p>Mendelsohn et al 2020 (dehumanization and linguistic change)</p></li>
+<li><p>Waller and Anderson 2020 (community embeddings)</p></li>
+<li><p>Soni et al 2021 (language change in abolitionist newspapers)</p></li>
+</ul>
+<p>Fundamental NLP/CS papers:</p>
+<ul class="simple">
+<li><p>Mikolov et al 2013 (word2vec)</p></li>
+<li><p>Pennington et al 2014 (GloVe)</p></li>
+<li><p>Dai and Le 2015 (paragraph vectors / doc2vec)</p></li>
+<li><p>Kusner et al 2015 (Word Mover’s Distance)</p></li>
+<li><p>Antoniak and Mimno 2018 (stability of embeddings)</p></li>
+<li><p>Sia et al 2020 (embeddings as topic models)</p></li>
+<li><p>Warmerdam et al 2020 (whatlies package)</p></li>
+</ul>
+</div>
+<div class="section" id="contact-information-and-acknowledgments">
+<h3>Contact information and acknowledgments<a class="headerlink" href="#contact-information-and-acknowledgments" title="Permalink to this headline">¶</a></h3>
+<p>Connor Gilroy<br />
+email: cgilroy at uw dot edu<br />
+twitter: &#64;ccgilroy</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href='https://students.washington.edu/cgilroy/'>Connor Gilroy</a><br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
