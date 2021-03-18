@@ -1,0 +1,10 @@
+name: emb-workshop
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - gensim
+  - jupyterlab
+  - scikit-learn
+  

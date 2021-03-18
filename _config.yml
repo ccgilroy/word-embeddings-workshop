@@ -1,0 +1,16 @@
+title: "CSS Workshop: Word Embeddings for the Social Sciences"
+author: "<a href='https://students.washington.edu/cgilroy/'>Connor Gilroy</a>"
+copyright: "2021"
+only_build_toc_files: true
+page_titles: toc
+execute:
+  execute_notebooks: "off"
+parse:
+  myst_extended_syntax: true
+  myst_url_schemes: [mailto, http, https]
+repository:
+  url: https://github.com/ccgilroy/word-embeddings-workshop
+  path_to_book: "/"
+  branch: "main"
+html:
+  use_repository_button: true
