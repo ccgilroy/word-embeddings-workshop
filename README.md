@@ -4,6 +4,8 @@ Author: Connor Gilroy
 
 This repository contains the materials for a 1-hour work embeddings workshop to be held on 3/19/21, organized by the Computational Social Science reading group at TechnoSoc. Follow the instructions below to run the notebook, word-embeddings-workshop.ipynb. 
 
+View a static web version of the workshop tutorial at https://ccgilroy.github.io/word-embeddings-workshop/. Introductory slides are [here](https://docs.google.com/presentation/d/1V4SaADerFMph9wB7pES76vYUWhIzvQ_LMpSyAIB6f_o/edit?usp=sharing).
+
 ## Setup
 
 If you use [conda](https://docs.conda.io/en/latest/) to manage your Python environments, you can install the key packages you need for this work shop by running this command in your terminal:
